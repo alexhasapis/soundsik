@@ -10,3 +10,8 @@ $(document).ready(function (){
     id: 'location'
   }).appendTo('div#locale');
 });
+
+renderGenres(genres);
+renderMoods(moods);
+
+
