@@ -1,5 +1,5 @@
 // moods array to create buttons from
-var moods = ['Happy', 'Sad', 'Relaxed', 'Anxious', 'Frustrated', 'Motivational', 'Excited', 'Sexy'];
+var moods = ['Party', 'Lively', 'Passionate', 'Reflective', 'Trippy', 'Happy', 'Sad', 'Soothing'];
 
 function renderMoods(ary){
  $(ary).each(function(){
@@ -11,5 +11,4 @@ function renderMoods(ary){
    $('#moods-list').append(label).append(radioBox);
  });
 }
-
 
