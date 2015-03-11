@@ -1,0 +1,16 @@
+#zip {
+  position: relative;
+  text-align: center;
+  top: 50px;
+}
+
+#locale {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+}
+
+#location{
+  height: 37px;
+  width: 600px;
+}

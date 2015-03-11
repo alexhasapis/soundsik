@@ -4,5 +4,9 @@
 
 
 $(document).ready(function (){
-  $('<h1>').text('Zip Code').appendTo('div.wrapper')
+  $('<h1>').attr('id', 'zip-code').text('Zip Code').appendTo('div#zip');
+  $('<input>').attr({
+    type: 'text',
+    id: 'location'
+  }).appendTo('div#locale');
 });
