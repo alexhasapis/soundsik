@@ -2,20 +2,20 @@ var genres = ["Rock", "Pop", "R&B", "Hiphop", "Indie/Alternative", "EDM", "Count
 
 
 
-
-// iterate over the genre array 
-$(genres).each(function (i, genre) {
-  // create a button from the array.
-  var $newButton = $('<button>').text(genre);
-  // append the button to the body
-   $("body").append($newButton)
-});
+function renderGenres(ary){
+ $(ary).each(function(){
+  
+   //create an li element with a button class and id of mood
+  var label = $('<label for = "'+ this + '_button"> '+ this + '</label>')
+  var radioBox  = $('<input type= "radio" id = "'+ this + '_button"  name = "genre" value= "'+ this + '">') 
 
 
+   // var element = $('<button class="button" "mood" id='+this+'>').text(this);
+   
+   // element.attr('value', this).attr('name', this);
+   
+   //Add button to list
+   $('#genres-list').append(label).append(radioBox);
+ });
+}
 
-// // $(buttonText).each(function(i, buttonText) {
-// //   var $newButton = $('<button>').text(buttonText)
-// //   $(".wrapper").append($buttonText)
-// //     // $newButton.on('click', someFunctionYouWrite);
-
-// // });

@@ -2,4 +2,10 @@
 // All this logic will automatically be available in application.js.
 $(document).ready(function (){
  $('<h1>').text('Zip Code').appendTo('div.wrapper');
+
+renderGenres(genres)
+renderMoods(moods)
+
+
 });
+
