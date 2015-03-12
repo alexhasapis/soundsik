@@ -3,11 +3,12 @@
 
 
 function loadSoundik(){
-  $('<h1>').attr('id', 'zip-code').text('Enter your zip code').appendTo('div#zip-text');
+  $('<h1>').attr('id', 'title').text('Soundisk').appendTo('div#title');
+  $('<h3>').text('Location').appendTo('div#zip-text');
   $('<input>').attr({
     type: 'text',
     id: 'location',
-    placeholder: 'Enter Zip Code'
+    placeholder: 'Your Zip Code'
   }).appendTo('div#zip-input');
 }
 
