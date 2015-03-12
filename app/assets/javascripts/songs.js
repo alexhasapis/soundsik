@@ -2,14 +2,17 @@
 // All this logic will automatically be available in application.js.
 
 
-
-$(document).ready(function (){
-  $('<h1>').attr('id', 'zip-code').text('Zip Code').appendTo('div#zip');
+function loadSoundik(){
+  $('<h1>').attr('id', 'zip-code').text('Enter your zip code').appendTo('div#zip-text');
   $('<input>').attr({
     type: 'text',
-    id: 'location'
-  }).appendTo('div#locale');
-});
+    id: 'location',
+    placeholder: 'Enter Zip Code'
+  }).appendTo('div#zip-input');
+}
+
+
+$(document).ready(loadSoundik);
 
 renderGenres(genres);
 renderMoods(moods);
