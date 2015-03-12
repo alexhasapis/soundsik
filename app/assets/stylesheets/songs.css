@@ -1,16 +1,40 @@
+body {
+  background-image: url("/assets/ss2.png");
+  background-size: cover;
+  font-family: 'Source Sans Pro'
+}
+
+h1 {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+}
+
 #zip {
   position: relative;
   text-align: center;
   top: 50px;
 }
 
-#locale {
-  position: absolute;
-  top: 50%;
-  left: 30%;
+#zip-text h3 {
+  margin-top: 225px;
+  margin-bottom: 0px;
+  text-align: center;
+  color: white;
 }
 
+#zip-input  {
+  position: relative;
+  text-align: center;
+}
+
+::-webkit-input-placeholder { text-align: center; }
+::-moz-placeholder { text-align: center; }
+:-ms-input-placeholder { text-align: center; }
+input:-moz-placeholder { text-align: center; }
+
 #location{
-  height: 37px;
-  width: 600px;
+  height: 25px;
+  width: 143px;
+  border-radius: 4px
 }
