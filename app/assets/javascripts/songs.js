@@ -8,7 +8,8 @@ function loadSoundik(){
   $('<input>').attr({
     type: 'text',
     id: 'location',
-    placeholder: 'Your Zip Code'
+    placeholder: 'Your Zip Code',
+    maxlength: '5'
   }).appendTo('div#zip-input');
 }
 

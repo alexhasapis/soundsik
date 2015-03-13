@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'songs/index'
+  post 'songs' => 'songs#create'
 
   root 'songs#index'
 
