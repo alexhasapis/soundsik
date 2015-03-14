@@ -26,6 +26,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #validate zip code in US
 gem 'area'
 
+gem 'geocoder'
+
+gem 'open-weather'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
