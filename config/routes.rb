@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'songs#index'
 
+  get "/zip_weather", to: "songs#zip_weather"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
