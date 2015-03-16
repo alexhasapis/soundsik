@@ -14,19 +14,11 @@ $(function(){
         //send data down in params format
         data: {zip_code: zipCode},
         success: function(data){
-          if (data){
-            //I'm thinking you can either ajax back down with the city + state
-            //for the weather call, or you can use this to trigger your change
-          }
-          else{
-            //Alert user the zip code was invalid.  We can come up with a
-            //better error show but this will do for now
-            alert("That is not a valid zip code. Please try again");
-          }
+          console.log(data)
+          var weatherData = data;
+          weather(weatherData);
         }
       });
     }
   });
 });
-
-5931f50a22af92b8b5294d2a09d5b876

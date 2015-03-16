@@ -22,14 +22,20 @@ class SongsController < ApplicationController
       type_of_weather = "Rain"
     when @location_weather = "Snow" || location_weather = "Atmosphere"
       type_of_weather = "Snow"
-    when @location_weather = "Clouds" && @weather["weather"].first["description"] != "clear sky"
+    when @location_weather = "Clouds"
       type_of_weather = "Cloudy"
     when @weather["weather"].first["description"] == "clear sky"
       type_of_weather = "Clear"
     end
     @type_of_weather = type_of_weather
 
-    redirect_to root_path
+    data = {
+      "type_of_weather": @type_of_weather,
+      "time_of_day": @time_of_day,
+      "location_temp": @location_temp
+    }
+
+    render json: data
   end
 
   def sun_position(sunrise, sunset)
@@ -46,7 +52,7 @@ class SongsController < ApplicationController
   def weather_info(weather)
     @weather = weather
     @location_weather = weather["weather"].first["main"]
-    @location_temp = 1.8 * (weather["main"]["temp"] - 273) + 32
+    @location_temp = (1.8 * (weather["main"]["temp"] - 273) + 32).to_i
   end
 
   def get_weather(location)
