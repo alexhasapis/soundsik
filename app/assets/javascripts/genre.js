@@ -11,22 +11,8 @@ function renderGenres(ary){
    //Add button to list
    $('#genres-list').append(label).append(radioBox);
 
-   // add an event listener
-   radioBox.on('change', getGenrePlaylist);
  });
 }
 
-function getGenrePlaylist(){
-  var genre = this.value;
-
-  $.ajax({
-    url:      '/',
-    type:     'get',
-    dataType: 'json',
-    data:     {genre: genre}
-  }).done(function(data){
-    debugger
-  })
-}
 
 

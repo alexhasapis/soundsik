@@ -17,6 +17,8 @@ $(function(){
           console.log(data)
           var weatherData = data;
           weather(weatherData);
+          renderMoods(moods);
+          renderGenres(genres);
         }
       });
     }

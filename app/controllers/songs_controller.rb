@@ -5,11 +5,8 @@ class SongsController < ApplicationController
     mood  = params[:mood] ? params[:mood] : ""
     genre = params[:genre] ? params[:genre] : ""
     if mood != ""
-      songs = get_songs(mood, "")
-    elsif genre != ""
-      songs = get_songs("", genre)
+      songs = get_songs(genre, mood)
     end
-      binding.pry
     respond_to do |format|
       format.html
       format.json { render json: {songs: songs} }
@@ -44,9 +41,9 @@ class SongsController < ApplicationController
     @type_of_weather = type_of_weather
 
     data = {
-      "type_of_weather": @type_of_weather,
-      "time_of_day": @time_of_day,
-      "location_temp": @location_temp
+      type_of_weather: @type_of_weather,
+      time_of_day: @time_of_day,
+      location_temp: @location_temp
     }
 
     render json: data
