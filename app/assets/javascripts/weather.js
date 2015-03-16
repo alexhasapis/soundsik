@@ -1,9 +1,5 @@
-var latitude, longitude
-
-// gets geolocation of user
-window.navigator.geolocation.getCurrentPosition(function(data){
-  latitude  = data.coords.latitude;
-  longitude = data.coords.longitude;
-  },
-  function(error){console.log(error)
-});
+function weather(data){
+  $('div.weather').empty();
+  $('<img>').attr('src', '/assets/' + data.time_of_day + data.type_of_weather + '.png').appendTo('div.weather');
+  $('<h1>').text(data.location_temp).appendTo('div.weather');
+};

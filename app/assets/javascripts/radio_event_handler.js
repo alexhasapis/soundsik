@@ -1,6 +1,5 @@
 //This is an event handler function to test if both radio buttons have been clicked without a submit buttom, hopefully it can be used to trigger our api call to echonest?
 
-
 $(function(){
    //test if a genre and mood button are clicked
  $('body').on('click', function(e){

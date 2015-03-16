@@ -38,3 +38,12 @@ input:-moz-placeholder { text-align: center; }
   width: 143px;
   border-radius: 4px
 }
+
+.weather {
+  position: absolute
+}
+
+.weather h1 {
+  color: white;
+  margin-top: 0px;
+}
