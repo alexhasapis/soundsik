@@ -28,7 +28,7 @@ gem 'area'
 
 gem 'geocoder'
 
-gem 'open-weather'
+gem 'httparty'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -9,13 +9,13 @@ $(function(){
       //ajax to our server for validation
       $.ajax({
         method: 'POST',
-        url: '/songs',
+        url: '/zip_weather',
         dataType: 'json',
         //send data down in params format
         data: {zip_code: zipCode},
         success: function(data){
           if (data){
-            //I'm thinking you can either ajax back down with the city + state 
+            //I'm thinking you can either ajax back down with the city + state
             //for the weather call, or you can use this to trigger your change
           }
           else{
@@ -28,3 +28,5 @@ $(function(){
     }
   });
 });
+
+5931f50a22af92b8b5294d2a09d5b876
