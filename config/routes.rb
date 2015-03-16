@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'songs/index'
+  post 'songs' => 'songs#create'
 
   root 'songs#index'
+
+  post "/zip_weather", to: "songs#zip_weather"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
