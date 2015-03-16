@@ -55,29 +55,13 @@ class SongsController < ApplicationController
     @location_temp = (1.8 * (weather["main"]["temp"] - 273) + 32).to_i
   end
 
-  def get_weather(location)
-    # binding.pry
-    if HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=
-      #{location[1]["long_name"]}, #{location[3]["long_name"]}
-      &APPID=5931f50a22af92b8b5294d2a09d5b876")== nil
-    else
-      weather = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=
-      #{location[1]["long_name"]}, #{location[3]["long_name"]}
-      &APPID=5931f50a22af92b8b5294d2a09d5b876")
-    end
-    weather_info(weather)
-    sun_position(weather["sys"]["sunrise"], weather["sys"]["sunset"])
-  end
-
   def valid_zip(zip_code)
-    # binding.pry
-    if Geocoder.search(zip_code).first.data["address_components"][4]["short_name"] == nil
+    weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{zip_code}&APPID=5931f50a22af92b8b5294d2a09d5b876")
+    if weather_data["sys"]["country"] != "US"
       flash[:notice] = "We're having connection issues. Please try again."
-    elsif Geocoder.search(zip_code).first.data["address_components"][4]["short_name"] != "US"
-      flash[:notice] = "Please enter a valid US zip code"
     else
-      weather_data = Geocoder.search(zip_code)
-      get_weather(weather_data.first.data["address_components"])
+      weather_info(weather_data)
+      sun_position(weather_data["sys"]["sunrise"], weather_data["sys"]["sunset"])
     end
   end
 end
