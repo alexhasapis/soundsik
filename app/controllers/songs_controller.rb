@@ -69,7 +69,7 @@ class SongsController < ApplicationController
   end
 
   def valid_zip(zip_code)
-    weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{zip_code}&APPID=5931f50a22af92b8b5294d2a09d5b876")
+    weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?q=#{zip_code}&APPID=#{OPEN_WEATHER_KEY}")
     if weather_data["sys"]["country"] != "US"
       flash[:notice] = "We're having connection issues. Please try again."
     else

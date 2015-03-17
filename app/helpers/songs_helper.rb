@@ -2,18 +2,20 @@ module SongsHelper
 
   # to create the link to get a list of songs from echonest based on a mood
   def create_echonest_url(genre, mood)
-    query_params = "?" + URI.encode_www_form({
-      api_key: ENV["ECHONEST_API_KEY"],
-      mood:    mood,
-      style:   genre
-    })
-    "http://developer.echonest.com/api/v4/song/search" + query_params + "&bucket=id:spotify&bucket=tracks"
+    # query_params = "?" + URI.encode_www_form({
+    #   api_key: ENV["ECHONEST_API_KEY"],
+    #   mood:    mood,
+    #   style:   genre
+    # }) + query_params +
+    "http://developer.echonest.com/api/v4/song/search?api_key=YDFBLU7TRQHX3G17B&mood=#{mood}&style=#{genre}&bucket=id:spotify&bucket=tracks"
   end
 
   # to actually hit the API and store the songs
   def find_songs_by_mood(genre, mood)
     link = create_echonest_url(genre, mood)
+    # binding.pry
     response = HTTParty.get(link)
+    # binding.pry
   end
 
   def get_songs(genre, mood)
