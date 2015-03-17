@@ -29,14 +29,16 @@ class SongsController < ApplicationController
   def zip_weather
     valid_zip(params[:zip_code])
     case @location_weather
-    when @location_weather = "Thunderstorm" || location_weather = "Drizzle" || location_weather = "Rain" || location_weather = "Extreme"
+    when "Thunderstorm", "Drizzle", "Rain", "Extreme"
       type_of_weather = "Rain"
-    when @location_weather = "Snow" || location_weather = "Atmosphere"
+    when "Snow", "Atmosphere"
       type_of_weather = "Snow"
-    when @location_weather = "Clouds"
-      type_of_weather = "Cloudy"
-    when @weather["weather"].first["description"] == "clear sky"
-      type_of_weather = "Clear"
+    when "Clouds"
+      if @weather["weather"].first["description"] == "clear sky"
+        type_of_weather = "Clear"
+      else
+        type_of_weather = "Cloudy"
+      end
     end
     @type_of_weather = type_of_weather
 
