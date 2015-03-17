@@ -14,8 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require genre
-//= require moods
-//= require radio_event_handler
-//= require weather
-//= require zip_input
