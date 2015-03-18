@@ -78,4 +78,37 @@ class SongsController < ApplicationController
     end
   end
 
+  def weather_via_coordinates
+    lat = params[:latitude]
+    long = params[:longitude]
+    weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{long}")
+    if weather_data["sys"]["country"] != "US"
+      flash[:notice] = "We're having connection issues. Please try again."
+    else
+      weather_info(weather_data)
+      sun_position(weather_data["sys"]["sunrise"], weather_data["sys"]["sunset"])
+    end
+    case @location_weather
+    when "Thunderstorm", "Drizzle", "Rain", "Extreme"
+      type_of_weather = "Rain"
+    when "Snow", "Atmosphere"
+      type_of_weather = "Snow"
+    when "Clouds"
+      if @weather["weather"].first["description"] == "clear sky"
+        type_of_weather = "Clear"
+      else
+        type_of_weather = "Cloudy"
+      end
+    end
+    @type_of_weather = type_of_weather
+
+    data = {
+      type_of_weather: @type_of_weather,
+      time_of_day: @time_of_day,
+      location_temp: @location_temp
+    }
+
+    render json: data
+  end
+
 end
