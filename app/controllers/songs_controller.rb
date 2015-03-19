@@ -5,7 +5,7 @@ class SongsController < ApplicationController
     mood  = params[:mood] ? params[:mood] : ""
     genre = params[:genre] ? params[:genre] : ""
     if mood != ""
-      songs = get_songs(genre, mood)
+      songs = get_spotify_songs(genre, mood)
     end
     respond_to do |format|
       format.html
