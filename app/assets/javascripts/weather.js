@@ -5,7 +5,7 @@ window.navigator.geolocation.getCurrentPosition(function(data){
   latitude  = data.coords.latitude;
   longitude = data.coords.longitude;
   $.ajax({
-    type: 'POST',
+    method: 'POST',
     url: '/weather_via_coordinates',
     dataType: 'json',
     //send data down in params format
