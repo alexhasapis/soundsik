@@ -33,15 +33,15 @@ class SongsController < ApplicationController
       type_of_weather = "Rain"
     when "Snow", "Atmosphere"
       type_of_weather = "Snow"
-    when "Clouds"
-      if @weather["weather"].first["description"] == "clear sky"
+    when "Clouds", "Clear"
+      if @weather["weather"].first["description"] == "clear sky" || "sky is clear"
         type_of_weather = "Clear"
       else
         type_of_weather = "Cloudy"
       end
     end
     @type_of_weather = type_of_weather
-
+    binding.pry
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
