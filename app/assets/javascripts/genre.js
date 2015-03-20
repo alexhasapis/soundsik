@@ -1,4 +1,4 @@
-var genres = ["Rock", "Pop", "R&B", "Hiphop", "Indie/Alternative", "EDM", "Country", "Jazz", "Classical"]
+var genres = ["Rock", "Pop", "R&B", "Hip Hop", "Indie Rock", "EDM", "Country", "Jazz", "Classical"]
 
 function renderGenres(ary){
  $(ary).each(function(){
