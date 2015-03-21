@@ -12,7 +12,6 @@ window.navigator.geolocation.getCurrentPosition(function(data){
     data: {latitude: latitude, longitude: longitude}
     }).success(function(data){
       console.log(data)
-      debugger
       $('#moods-list').children().remove();
       $('#genres-list').children().remove();
       var weatherData = data;
