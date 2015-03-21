@@ -28,7 +28,7 @@ module SongsHelper
   def seed_playlist(artists, mood)
     case mood
     when "Happy"
-      song_selection = "energy-top"
+      song_selection = "valence-top"
       sort = "danceability-asc"
     when "Party"
       song_selection = "danceability-top"
@@ -37,19 +37,19 @@ module SongsHelper
       song_selection = "valence-bottom"
       sort = "valence-asc"
     when "Passionate"
-      song_selection = "valence-top"
+      song_selection = "energy-top"
       sort = "valence-asc" 
     when "Reflective"
       song_selection = "acousticness-top"
       sort = "valence-asc"
     when "Trippy"
-      song_selection = "tempo-bottom"
+      song_selection = "acousticness-bottom"
       sort = "danceability-asc"      
     when "Lively"
       song_selection = "tempo-top"
       sort = "energy-asc"
     when "Soothing"
-      song_selection = "loudness-bottom"
+      song_selection = "energy-bottom"
       sort = "tempo-desc"
     end
     
