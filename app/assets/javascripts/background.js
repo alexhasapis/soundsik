@@ -4,7 +4,7 @@ var changeBackgroundBasedOnTimeOfDay = function() {
   var minutes = date.getMinutes();
   var hour    = date.getHours();
   var rValue, gValue, gValue, timePassed;
-  // debugger
+
   var totalMinutes = (hour * 60) + minutes;
 
   // between midnight and 3 am
@@ -34,6 +34,13 @@ var changeBackgroundBasedOnTimeOfDay = function() {
 
   $('body').attr('style', 'background:rgba(' + parseInt(rValue) + ',' + parseInt(gValue) + ',' + parseInt(bValue) + ',0.75);')
 }
+
+$(document).ready(function(){
+  changeBackgroundBasedOnTimeOfDay();
+
+  setInterval(changeBackgroundBasedOnTimeOfDay, 300000);
+})
+
 
 
 
