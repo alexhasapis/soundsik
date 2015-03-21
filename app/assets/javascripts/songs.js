@@ -10,11 +10,17 @@ function loadSoundsik(){
     placeholder: 'Your Zip Code',
     maxlength: '5'
   }).appendTo('div#zip-input');
-}
+};
+
+$(document).ajaxStart(function() {
+  var target = document.getElementById('spinner')
+  var spinner = new Spinner(opts).spin(target);
+  console.log("working")
+});
+
+$( document ).ajaxComplete(function() {
+  $('#spinner').empty();
+});
 
 $(document).ready(loadSoundsik);
-
-renderGenres(genres);
-renderMoods(moods);
-
 
