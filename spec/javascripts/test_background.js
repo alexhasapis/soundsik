@@ -1,5 +1,4 @@
-// write your sleepIn function in src/intro.js
-describe('sleepIn', function(){
+describe('changeBackgroundBasedOnTimeOfDay', function(){
 
   // this is a spec
   it('returns true for Saturday', function(){

@@ -1,4 +1,3 @@
-
 var changeBackgroundBasedOnTimeOfDay = function() {
   var date    = new Date;
   var minutes = date.getMinutes();

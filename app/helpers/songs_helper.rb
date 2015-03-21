@@ -19,12 +19,21 @@ module SongsHelper
   end
 
   def get_songs(genre, mood)
+    puts "***************************"
+    puts "ENTERING get_songs METHOD"
+    puts "***************************"
+    puts
     response = find_songs_by_mood(genre, mood)
+    puts "Our song API response: #{response}"
+
+    puts "***************************"
+    puts "EACH SONG:"
     spotify_ids = response["response"]["songs"].map do |song|
       if (!song["tracks"].empty?) && (song["artist_name"] != nil) && (song["title"] != nil)
         # { artist:     song["artist_name"],
           # title:      song["title"],
           song["tracks"][0]["foreign_id"].split(":")[2]
+          puts song
         # }
       end
     end
@@ -32,6 +41,7 @@ module SongsHelper
     spotify_ids.compact.each do |song|
       play_list_string = play_list_string + song + ","
     end
+    puts "Our Play List: #{play_list_string}"
     play_list_string
   end
 
