@@ -16,6 +16,7 @@ module WeatherHelper
     @weather = weather
     @location_weather = weather["weather"].first["main"]
     @location_temp = (1.8 * (weather["main"]["temp"] - 273) + 32).to_i
+    @city = weather["name"]
   end
 
   def valid_zip(zip_code)

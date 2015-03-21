@@ -12,7 +12,6 @@ window.navigator.geolocation.getCurrentPosition(function(data){
     data: {latitude: latitude, longitude: longitude}
     }).success(function(data){
       console.log(data)
-      debugger
       $('#moods-list').children().remove();
       $('#genres-list').children().remove();
       var weatherData = data;
@@ -27,6 +26,8 @@ window.navigator.geolocation.getCurrentPosition(function(data){
 
 function weather(data){
   $('div.weather').empty();
-  $('<img>').attr('src', '/images/' + data.time_of_day + data.type_of_weather + '.png').appendTo('div.weather');
-  $('<h1>').text(data.location_temp).appendTo('div.weather');
+  $('<div class="clearfix">').appendTo('div.weather')
+  $('<img>').attr('src', '/images/' + data.time_of_day + data.type_of_weather + '.png').appendTo('div.clearfix');
+  $('<h1>').text(data.location_temp + '\xB0').appendTo('div.clearfix');
+  $('<h1>').text(data.city).appendTo('div.weather');
 };

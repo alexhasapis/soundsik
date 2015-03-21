@@ -32,11 +32,11 @@ class SongsController < ApplicationController
 
     choose_weather_icon(@location_weather)
 
-
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
-      location_temp: @location_temp
+      location_temp: @location_temp,
+      city: @city
     }
 
     render json: data
@@ -50,11 +50,11 @@ class SongsController < ApplicationController
 
     weather_coordinates(lat, long)
     choose_weather_icon(@location_weather)
-
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
-      location_temp: @location_temp
+      location_temp: @location_temp,
+      city: @city
     }
 
     render json: data
