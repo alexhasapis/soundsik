@@ -16,6 +16,7 @@ module WeatherHelper
     @weather = weather
     @location_weather = weather["weather"].first["main"]
     @location_temp = (1.8 * (weather["main"]["temp"] - 273) + 32).to_i
+    @city = weather["name"]
   end
 
   def valid_zip(zip_code)
@@ -44,8 +45,8 @@ module WeatherHelper
       type_of_weather = "Rain"
     when "Snow", "Atmosphere"
       type_of_weather = "Snow"
-    when "Clouds"
-      if @weather["weather"].first["description"] == "clear sky"
+    when "Clouds", "Clear"
+       if @weather["weather"].first["description"] == "clear sky" || "sky is clear"
         type_of_weather = "Clear"
       else
         type_of_weather = "Cloudy"

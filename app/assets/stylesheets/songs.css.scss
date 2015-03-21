@@ -41,10 +41,19 @@ input:-moz-placeholder { text-align: center; }
 }
 
 .weather {
-  position: absolute
+  position: absolute;
 }
+
+.weather img {
+    float: left;
+  }
 
 .weather h1 {
   color: white;
   margin-top: 0px;
+  float: left
+}
+
+.clearfix h1{
+    margin-left: 15px;
 }

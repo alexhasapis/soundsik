@@ -6,7 +6,7 @@ class SongsController < ApplicationController
     mood  = params[:mood] ? params[:mood] : ""
     genre = params[:genre] ? params[:genre] : ""
     if mood != ""
-      songs = get_songs(genre, mood)
+      songs = get_spotify_songs(genre, mood)
     end
     respond_to do |format|
       format.html
@@ -29,12 +29,14 @@ class SongsController < ApplicationController
 
   def zip_weather
     valid_zip(params[:zip_code])
+
     choose_weather_icon(@location_weather)
 
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
-      location_temp: @location_temp
+      location_temp: @location_temp,
+      city: @city
     }
 
     render json: data
@@ -48,11 +50,11 @@ class SongsController < ApplicationController
 
     weather_coordinates(lat, long)
     choose_weather_icon(@location_weather)
-
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
-      location_temp: @location_temp
+      location_temp: @location_temp,
+      city: @city
     }
 
     render json: data
