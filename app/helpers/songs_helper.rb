@@ -61,20 +61,25 @@ module SongsHelper
     return HTTParty.get(link)
   end
 
+  # remove tracks where the same artist appears twice in
+  # a row
   def filter_sequential_artists(playlist)
     i = 1
     repeated = 0
     while i < playlist.length
       if playlist[i]["artist_name"] == playlist[i-1]["artist_name"]
       puts playlist[i]["artist_name"] 
-      puts playlist[i-1]["artist_name"]  
-      playlist.delete_at[i]
+      puts playlist[i-1]["artist_name"]
+      binding.pry  
+      playlist.delete_at(i)
       end  
      i += 1
     end
     return playlist
   end  
 
+  #parse spotify id data from echonest call to send
+  # back up to create player
   def get_spotify_songs(genre, mood)
     artist_response = find_artists_by_mood(genre, mood)
     playlist = seed_playlist(artist_response, mood)
