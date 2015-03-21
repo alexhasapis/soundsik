@@ -58,6 +58,7 @@ class SongsController < ApplicationController
     puts "Choosing Weather Icon"
     choose_weather_icon(@location_weather)
 
+
     data = {
       type_of_weather: @type_of_weather,
       time_of_day: @time_of_day,
