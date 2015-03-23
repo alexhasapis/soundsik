@@ -1,13 +1,13 @@
 body {
-  background-image: asset-data-url("ss2.png");
   background-size: cover;
   font-family: 'Source Sans Pro';
   color: white;
 }
 
-h1 {
-  margin-top: 100px;
-  text-align: center;
+#title img{
+  height: 90px;
+  width: 150px;
+  margin-top: 30px;
   color: white;
 }
 
