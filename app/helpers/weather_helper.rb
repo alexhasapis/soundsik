@@ -34,7 +34,6 @@ module WeatherHelper
     puts "ENTERING weather_coordinates METHOD"
     puts "***************************"
 
-    binding.pry
     weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{long}&APPID=#{OPEN_WEATHER_KEY}")
     puts "Weather Data Response: #{weather_data}"
 
