@@ -12,6 +12,8 @@ function loadSoundsik(){
 };
 
 function warblrPanel(){
+  $('#genres').empty();
+  $('#moods').empty();
   $('.mood-genre-buttons').css({
     "border-color": "white",
     "border-style": "solid",

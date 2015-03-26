@@ -15,22 +15,21 @@ $(function(){
         data: {zip_code: zipCode},
         success: function(data){
           console.log(data)
-          $('#moods-list').children().remove();
-          $('#genres-list').children().remove();
-          $('.mood-genre-buttons').empty();
+          $('#moods').empty();
+          $('#genres').empty();
           var weatherData = data;
           weather(weatherData);
           warblrPanel();
-          $('<button>').attr("id", "Change Your Playlist").text("Change Your Playlist").css({
+          $('<button>').attr("id", "Playlist").text("Change Your Playlist").css({
             "background-color": "white",
             "border-color": "black",
             "border-style": "solid",
-            "height": "30px",
-            "width": "60px",
+            "height": "50px",
+            "width": "70px",
             "float": "right"
           }).insertBefore("#zip-text");
 
-          $('<button>').attr("id", "Genre").text("Genre").css({
+          $('<button>').attr("id", "Mood").text("Mood").css({
             "background-color": "white",
             "border-color": "black",
             "border-style": "solid",
@@ -40,7 +39,7 @@ $(function(){
             "margin-left": "100px"
           }).appendTo('.mood-genre-buttons');
 
-          $('<button>').attr("id", "Mood").text("Mood").css({
+          $('<button>').attr("id", "Genre").text("Genre").css({
             "background-color": "white",
             "border-color": "black",
             "border-style": "solid",
