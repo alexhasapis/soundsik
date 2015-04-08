@@ -11898,7 +11898,7 @@ function warblrPanel(){
     "height": "375px",
     "margin-top": "50px"
   });
-  $('h3').css("margin-top", "75px")
+  $('h3').css("margin-top", "45px")
   $('#zip-text').appendTo('.mood-genre-buttons');
   $('#zip-input').insertAfter('#zip-text');
 };

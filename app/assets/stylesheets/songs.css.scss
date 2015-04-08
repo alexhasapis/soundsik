@@ -45,8 +45,8 @@ input:-moz-placeholder { text-align: center; }
 }
 
 .weather img {
-    float: left;
-  }
+  float: left;
+}
 
 .weather h1 {
   color: white;
@@ -55,5 +55,11 @@ input:-moz-placeholder { text-align: center; }
 }
 
 .clearfix h1{
-    margin-left: 15px;
+  margin-left: 15px;
+}
+
+.music-player {
+  position: fixed;
+  top: 50%;
+  left: 42.5%;
 }

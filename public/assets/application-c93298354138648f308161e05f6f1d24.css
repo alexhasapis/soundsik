@@ -7,7 +7,7 @@ body {
 
 /* line 7, /Users/qiheme001c/PersonalDev/soundsik/app/assets/stylesheets/songs.css.scss */
 #title img {
-  height: 90px;
+  height: 110px;
   width: 150px;
   margin-top: 30px;
   color: white;
@@ -81,6 +81,13 @@ input:-moz-placeholder {
 /* line 57, /Users/qiheme001c/PersonalDev/soundsik/app/assets/stylesheets/songs.css.scss */
 .clearfix h1 {
   margin-left: 15px;
+}
+
+/* line 61, /Users/qiheme001c/PersonalDev/soundsik/app/assets/stylesheets/songs.css.scss */
+.music-player {
+  position: fixed;
+  top: 50%;
+  left: 42.5%;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
