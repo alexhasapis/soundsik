@@ -30,7 +30,13 @@ module WeatherHelper
   end
 
   def weather_coordinates(lat, long)
+    puts "***************************"
+    puts "ENTERING weather_coordinates METHOD"
+    puts "***************************"
+
     weather_data = HTTParty.get("http://api.openweathermap.org/data/2.5/weather?lat=#{lat}&lon=#{long}&APPID=#{OPEN_WEATHER_KEY}")
+    puts "Weather Data Response: #{weather_data}"
+
     if weather_data["sys"]["country"] != "US"
       flash[:notice] = "We're having connection issues. Please try again."
     else
@@ -40,6 +46,10 @@ module WeatherHelper
   end
 
   def choose_weather_icon(location_weather)
+    puts "***************************"
+    puts "ENTERING choose_weather_icon METHOD"
+    puts "***************************"
+
     case location_weather
     when "Thunderstorm", "Drizzle", "Rain", "Extreme"
       type_of_weather = "Rain"

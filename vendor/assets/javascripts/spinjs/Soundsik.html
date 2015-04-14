@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Soundsik</title>
+  
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" media="all" href="http://localhost:3000/assets/songs-2bf952ab369d9f71c8ecc61cb8cc3620.css?body=1" data-turbolinks-track="true">
+<link rel="stylesheet" media="all" href="http://localhost:3000/assets/application-37628a4fa5990233bf4e184b36771325.css?body=1" data-turbolinks-track="true">
+  <link href="./Soundsik_files/css" rel="stylesheet" type="text/css">
+  <script src="./Soundsik_files/jquery-87424c3c19e96d4fb033c10ebe21ec40.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/turbolinks-f87b3583ca50adb0488b031297f5580d.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/artists-a30b69f1f57a62ab438bec6bbade19f5.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/background-ee11ee2e96976be7b6e4583285e4f408.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/genre-db6a79aa5524e7418875d7d8bc6b3a66.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/moods-d85d0e9efe086514c307e045f5b4a535.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/radio_event_handler-444043926909c3395bec5e67a0bfe18e.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/songs-f3d0dcf606c126ee6d03356c0221b7f7.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/weather-2e1be1f57f5581bb181817adbfb4d881.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/zip_input-5a17e207e567b181d6bde2dcfe81f9fb.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/spin-25e2ca7579757849b89f0bd841a997d1.js" data-turbolinks-track="true"></script><style type="text/css"></style>
+<script src="./Soundsik_files/setSpinner-ca387f75b0d953c06509c451f469b6eb.js" data-turbolinks-track="true"></script>
+<script src="./Soundsik_files/application-060736e3af1dbb2cf06cdca3a8a663b6.js" data-turbolinks-track="true"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="7jhK4jHq7KZsJj+z39LMMaWOXonGbOUKphsobH4oExQpxswu5frR5ch06VGhH6KncY+6jgKGv05mcv7pddkx5w==">
+</head>
+<body style="background: rgba(63, 155, 255, 0.74902);">
+
+<div id="spinner" class="wrapper"></div>
+<div class="weather"><div class="clearfix"><img src="./Soundsik_files/DayClear.png"><h1>32°</h1></div><h1>Philadelphia</h1></div>
+
+<div class="soundsik-wrapper">
+  <center>
+    <div id="title">
+      <img src="./Soundsik_files/warblrlogo-13d8fbb3e6ae804ef20155e35daefff6.png" alt="Warblrlogo">
+    </div>
+  </center>
+  <div id="zip-text"><h3>Location</h3></div>
+  <div id="zip-input"><input type="text" id="location" placeholder="Your Zip Code" maxlength="5"></div>
+  <div id="mood-genre-text"></div>
+  <div class="zip-mood-genre-box"></div>
+  <div class="mood-genre-buttons">
+    <div id="moods">
+      <ul id="moods-list"><label for="Party_button"> Party</label><input type="radio" class="mood" id="Party_button" name="mood" value="Party"><label for="Lively_button"> Lively</label><input type="radio" class="mood" id="Lively_button" name="mood" value="Lively"><label for="Passionate_button"> Passionate</label><input type="radio" class="mood" id="Passionate_button" name="mood" value="Passionate"><label for="Reflective_button"> Reflective</label><input type="radio" class="mood" id="Reflective_button" name="mood" value="Reflective"><label for="Trippy_button"> Trippy</label><input type="radio" class="mood" id="Trippy_button" name="mood" value="Trippy"><label for="Happy_button"> Happy</label><input type="radio" class="mood" id="Happy_button" name="mood" value="Happy"><label for="Sad_button"> Sad</label><input type="radio" class="mood" id="Sad_button" name="mood" value="Sad"><label for="Soothing_button"> Soothing</label><input type="radio" class="mood" id="Soothing_button" name="mood" value="Soothing"></ul>
+    </div>
+    <div id="genres">
+      <ul id="genres-list"><label for="Rock_button"> Rock</label><input type="radio" id="Rock_button" name="genre" value="Rock"><label for="Pop_button"> Pop</label><input type="radio" id="Pop_button" name="genre" value="Pop"><label for="R&amp;B_button"> R&amp;B</label><input type="radio" id="R&amp;B_button" name="genre" value="R&amp;B"><label for="Hip Hop_button"> Hip Hop</label><input type="radio" id="Hip Hop_button" name="genre" value="Hip Hop"><label for="Indie Rock_button"> Indie Rock</label><input type="radio" id="Indie Rock_button" name="genre" value="Indie Rock"><label for="EDM_button"> EDM</label><input type="radio" id="EDM_button" name="genre" value="EDM"><label for="Country_button"> Country</label><input type="radio" id="Country_button" name="genre" value="Country"><label for="Jazz_button"> Jazz</label><input type="radio" id="Jazz_button" name="genre" value="Jazz"><label for="Classical_button"> Classical</label><input type="radio" id="Classical_button" name="genre" value="Classical"></ul>
+    </div>
+  </div>
+</div>
+
+<div class="music-player"></div>
+
+
+
+
+
+<div id="window-resizer-tooltip" style="display: block;"><a href="http://localhost:3000/#" title="Edit settings"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1440</span> x <span class="tooltipHeight" id="winHeight">824</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">685</span></div></body></html>
