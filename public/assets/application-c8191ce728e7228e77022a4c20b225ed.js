@@ -11643,57 +11643,62 @@ $(document).ready(function(){
 
 
 ;
-var genres = ["Rock", "Pop", "R&B", "Hip Hop", "Indie Rock", "EDM", "Country", "Jazz", "Classical"]
+var genres = ["Rock", "Pop", "R&B", "Hip Hop", "EDM", "Country", "Jazz", "Classical"]
 
-function renderGenres(ary){
- $(ary).each(function(){
+$(document).on("click", "button#Genre", function(){
+  $('#genres').empty();
+  $('#moods').empty();
+  $('#genres').css({
+    "position": "fixed",
+    "top": "300px",
+    "height": "160px",
+    "left": "225px",
+    "width": "550px"
+  });
 
-   //create a label element with a button id based on genre
-  var label = $('<label for = "'+ this + '_button"> '+ this + '</label>')
-  //create a radiobutton  with a button with a value of genre
-  var radioBox  = $('<input type= "radio" id = "'+ this + '_button"  name = "genre" value= "'+ this + '">')
-
-   //Add button to list
-   $('#genres-list').append(label).append(radioBox);
-
- });
-}
-
-
-
-;
-// moods array to create buttons from
-var moods = ['Party', 'Lively', 'Passionate', 'Reflective', 'Trippy', 'Happy', 'Sad', 'Soothing'];
-
-function renderMoods(ary){
- $(ary).each(function(){
-
-  //create a label element with a button id based on mood
-  var label = $('<label for = "'+ this + '_button"> '+ this + '</label>')
-  //create a radiobutton  with a button with a value of genre
-
-  var radioBox  = $('<input type= "radio" class="mood" id = "'+ this + '_button"  name = "mood" value= "'+ this + '">')
-  //add button to list
-  $('#moods-list').append(label).append(radioBox);
-
- });
-}
-
-;
-//This is an event handler function to test if both radio buttons have been clicked without a submit buttom, hopefully it can be used to trigger our api call to echonest?
-
-$(function(){
+  $('.mood-genre-buttons').css("width", "800px");
+  $('#zip-text').css("margin-left", "67.5px");
+  $('#zip-text > h3').css({
+    "text-align": "left",
+    "margin-top": "35px"
+    });
+  $('#zip-input').css({
+    "position": "fixed",
+    "margin-left": "25px"
+  });
+  $('button#Mood').css({
+    "background-color": "white",
+    "position": "fixed",
+    "top": "300px",
+    "margin-left": "50px"
+  });
+  $('button#Genre').css({
+    "background-color": "gray",
+    "position": "fixed",
+    "top": "400px",
+    "margin-left": "50px"
+  });
+  $('#Playlist').text("Make A Playlist").css({
+    "position": "fixed",
+    "height": "30px",
+    "width": "150px",
+    "top": "512.5px",
+    "left": "35px"
+  }).insertAfter('button#Genre').on("click", function(){
    //test if a genre and mood button are clicked
-  $('body').on('click', function(e){
-  //grab all radio buttons that are checked
-  var checkedBoxes = $(':checked')
-  //if there is only 1 checked do nothing, otherwise...
-  if (checkedBoxes.length === 2){
-    //grab the values of the genre and mood radios that are checked
-    var genre = $('#genres-list input:checked').val();
-    var mood = $('#moods-list input:checked').val();
-    console.log(genre, mood);
+  // $('body').on('click', function(e){
+  // //grab all radio buttons that are checked
+  // var checkedBoxes = $(':checked')
+  // //if there is only 1 checked do nothing, otherwise...
+  // if (checkedBoxes.length === 2){
+  //   //grab the values of the genre and mood radios that are checked
+  //   var genre = $('#genres-list input:checked').val();
+  //   var mood = $('#moods-list input:checked').val();
 
+  console.log(genre, mood);
+  if (typeof genre !== 'undefined' && mood !== 'undefined') {
+    // the variable is defined
+    warblrPanel();
     $.ajax({
       url:      '/',
       type:     'get',
@@ -11706,12 +11711,170 @@ $(function(){
       var spotifyPlayer = $('<iframe>');
       spotifyPlayer.attr('src', src).attr('frameborder', 0).attr('allowtransparency', true);
       $('.music-player').append(spotifyPlayer);
-    })
+    });
   }
- })
-})
+});
+  renderGenres(genres);
+});
 
-;
+function renderGenres(ary){
+  $(ary).each(function(){
+    $('<button>').attr({"class": "Genre", "id": this}).text(this).css({
+      "background-color": "white",
+      "border-color": "black",
+      "border-style": "solid",
+      "height": "60px",
+      "width": "100px",
+      "display": "inline-block",
+      "margin": "10px"
+      }).appendTo("#genres");
+      //create a label element with a button id based on genre
+      // var label = $('<label for = "'+ this + '_button"> '+ this + '</label>')
+      //create a radiobutton  with a button with a value of genre
+      // var radioBox  = $('<input type= "radio" id = "'+ this + '_button"  name = "genre" value= "'+ this + '">')
+      //Add button to list
+      // $('#genres-list').append(label).append(radioBox);
+  });
+  $('button.Genre').on("click", function (){
+    $('button.Genre').css("background-color", "white");
+    $('button#Genre').text(this.innerHTML);
+    genre = this.innerHTML
+    this.style.backgroundColor = "gray";
+  });
+};
+// moods array to create buttons from
+var moods = ['Party', 'Lively', 'Passionate', 'Reflective', 'Trippy', 'Happy', 'Sad', 'Soothing'];
+
+$(document).on("click", "button#Mood", function(){
+  $('#moods').empty();
+  $('#genres').empty();
+  $('#moods').css({
+    "position": "fixed",
+    "top": "300px",
+    "height": "160px",
+    "left": "225px",
+    "width": "550px"
+  });
+
+  $('.mood-genre-buttons').css("width", "800px");
+  $('#zip-text').css("margin-left", "67.5px");
+  $('#zip-text > h3').css({
+    "text-align": "left",
+    "margin-top": "35px"
+    });
+  $('#zip-input').css({
+    "position": "fixed",
+    "margin-left": "25px"
+  });
+  $('button#Mood').css({
+    "background-color": "gray",
+    "position": "fixed",
+    "top": "300px",
+    "margin-left": "50px"
+  });
+  $('button#Genre').css({
+    "background-color": "white",
+    "position": "fixed",
+    "top": "400px",
+    "margin-left": "50px"
+  });
+  $('#Playlist').text("Make A Playlist").css({
+    "position": "fixed",
+    "height": "30px",
+    "width": "150px",
+    "top": "512.5px",
+    "left": "35px"
+  }).insertAfter('button#Genre').on("click", function(){
+   //test if a genre and mood button are clicked
+  // $('body').on('click', function(e){
+  // //grab all radio buttons that are checked
+  // var checkedBoxes = $(':checked')
+  // //if there is only 1 checked do nothing, otherwise...
+  // if (checkedBoxes.length === 2){
+  //   //grab the values of the genre and mood radios that are checked
+  //   var genre = $('#genres-list input:checked').val();
+  //   var mood = $('#moods-list input:checked').val();
+
+  console.log(genre, mood);
+  if (typeof genre !== 'undefined' && mood !== 'undefined') {
+    // the variable is defined
+    warblrPanel();
+    $.ajax({
+      url:      '/',
+      type:     'get',
+      dataType: 'json',
+      data:     {mood: mood, genre: genre}
+    }).done(function(data){
+      $('.music-player').children().remove();
+      var src = "https://embed.spotify.com/?uri=" + data.songs
+
+      var spotifyPlayer = $('<iframe>');
+      spotifyPlayer.attr('src', src).attr('frameborder', 0).attr('allowtransparency', true);
+      $('.music-player').append(spotifyPlayer);
+    });
+  }
+});
+  renderMoods(moods);
+});
+
+function renderMoods(ary){
+  $(ary).each(function(){
+    $('<button>').attr({"class": "Mood", "id": this}).text(this).css({
+      "background-color": "white",
+      "border-color": "black",
+      "border-style": "solid",
+      "height": "60px",
+      "width": "100px",
+      "display": "inline-block",
+      "margin": "10px"
+      }).appendTo("#moods");
+      // //create a label element with a button id based on mood
+      // var label = $('<label for = "'+ this + '_button"> '+ this + '</label>')
+      // //create a radiobutton  with a button with a value of genre
+      // var radioBox  = $('<input type= "radio" class="mood" id = "'+ this + '_button"  name = "mood" value= "'+ this + '">')
+      // //add button to list
+      // $('#moods-list').append(label).append(radioBox);
+  });
+  $('button.Mood').on("click", function (){
+    $('button.Mood').css("background-color", "white");
+    $('button#Mood').text(this.innerHTML);
+    mood = this.innerHTML
+    this.style.backgroundColor = "gray";
+  });
+};
+//This is an event handler function to test if both radio buttons have been clicked without a submit buttom, hopefully it can be used to trigger our api call to echonest?
+
+// $('button#Playlist').on("click", function(){
+//    //test if a genre and mood button are clicked
+//   // $('body').on('click', function(e){
+//   // //grab all radio buttons that are checked
+//   // var checkedBoxes = $(':checked')
+//   // //if there is only 1 checked do nothing, otherwise...
+//   // if (checkedBoxes.length === 2){
+//   //   //grab the values of the genre and mood radios that are checked
+//   //   var genre = $('#genres-list input:checked').val();
+//   //   var mood = $('#moods-list input:checked').val();
+
+//   console.log(genre, mood);
+//   if (typeof genre !== 'undefined' && mood !== 'undefined') {
+//     // the variable is defined
+//     warblrpanel();
+//     $.ajax({
+//       url:      '/',
+//       type:     'get',
+//       dataType: 'json',
+//       data:     {mood: mood, genre: genre}
+//     }).done(function(data){
+//       $('.music-player').children().remove();
+//       var src = "https://embed.spotify.com/?uri=" + data.songs
+
+//       var spotifyPlayer = $('<iframe>');
+//       spotifyPlayer.attr('src', src).attr('frameborder', 0).attr('allowtransparency', true);
+//       $('.music-player').append(spotifyPlayer);
+//     });
+//   }
+// });
+
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
@@ -11724,6 +11887,31 @@ function loadSoundsik(){
     maxlength: '5'
   }).appendTo('div#zip-input');
 };
+
+function warblrPanel(){
+  $('#genres').empty();
+  $('#moods').empty();
+  $('.mood-genre-buttons').css({
+    "border-color": "white",
+    "border-style": "solid",
+    "width": "300px",
+    "height": "375px",
+    "margin-top": "50px"
+  });
+  $('h3').css("margin-top", "45px")
+  $('#zip-text').appendTo('.mood-genre-buttons');
+  $('#zip-input').insertAfter('#zip-text');
+};
+
+// function warblrButton(name, height, width){
+//   $('<button>').attr("id", name).text(name).css({
+//     "border-color": "gray",
+//     "border-style": "solid",
+//     "height": height,
+//     "width": width
+//   });
+// };
+
 
 $(document).ajaxStart(function() {
   var target = document.getElementById('spinner')
@@ -11751,13 +11939,46 @@ window.navigator.geolocation.getCurrentPosition(function(data){
     data: {latitude: latitude, longitude: longitude}
     }).success(function(data){
       console.log(data)
-      $('#moods-list').children().remove();
-      $('#genres-list').children().remove();
+      $('#moods').empty();
+      $('#genres').empty();
       var weatherData = data;
       weather(weatherData);
-      renderMoods(moods);
-      renderGenres(genres);
-  })
+      warblrPanel();
+      $('<button>').attr("id", "Playlist").text("Change Your Playlist").css({
+        "background-color": "white",
+        "border-color": "black",
+        "border-style": "solid",
+        "height": "50px",
+        "width": "70px",
+        "float": "right"
+      }).insertBefore("#zip-text");
+
+      $('<button>').attr("id", "Mood").text("Mood").css({
+        "background-color": "white",
+        "border-color": "black",
+        "border-style": "solid",
+        "height": "60px",
+        "width": "100px",
+        "margin-top": "30px",
+        "margin-left": "100px"
+      }).appendTo('.mood-genre-buttons');
+
+      $('<button>').attr("id", "Genre").text("Genre").css({
+        "background-color": "white",
+        "border-color": "black",
+        "border-style": "solid",
+        "height": "60px",
+        "width": "100px",
+        "margin-top": "30px",
+        "margin-left": "100px"
+      }).appendTo('.mood-genre-buttons');
+
+      // warblrButton("Change Your Playlist", "30px", "60px").insertBefore('#zip-text');
+      // warblrButton("Mood", "60px", "100px").insertAfter('#zip-location');
+      // warblrButton("Genre", "60px", "100px").insertAfter('#Mood');
+      // renderMoods(moods);
+      // renderGenres(genres);
+    })
   },
   function(error){console.log(error)
 });
@@ -11787,12 +12008,44 @@ $(function(){
         data: {zip_code: zipCode},
         success: function(data){
           console.log(data)
-          $('#moods-list').children().remove();
-          $('#genres-list').children().remove();
+          $('#moods').empty();
+          $('#genres').empty();
           var weatherData = data;
           weather(weatherData);
-          renderMoods(moods);
-          renderGenres(genres);
+          warblrPanel();
+          $('<button>').attr("id", "Playlist").text("Change Your Playlist").css({
+            "background-color": "white",
+            "border-color": "black",
+            "border-style": "solid",
+            "height": "50px",
+            "width": "70px",
+            "float": "right"
+          }).insertBefore("#zip-text");
+
+          $('<button>').attr("id", "Mood").text("Mood").css({
+            "background-color": "white",
+            "border-color": "black",
+            "border-style": "solid",
+            "height": "60px",
+            "width": "100px",
+            "margin-top": "30px",
+            "margin-left": "100px"
+          }).appendTo('.mood-genre-buttons');
+
+          $('<button>').attr("id", "Genre").text("Genre").css({
+            "background-color": "white",
+            "border-color": "black",
+            "border-style": "solid",
+            "height": "60px",
+            "width": "100px",
+            "margin-top": "30px",
+            "margin-left": "100px"
+          }).appendTo('.mood-genre-buttons');
+
+          // warblrButton("Mood", "60px", "100px").insertAfter('#zip-location');
+          // warblrButton("Genre", "60px", "100px").insertAfter('#Mood');
+          // renderMoods(moods);
+          // renderGenres(genres);
         }
       });
     }

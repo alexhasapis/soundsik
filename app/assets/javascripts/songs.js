@@ -11,6 +11,31 @@ function loadSoundsik(){
   }).appendTo('div#zip-input');
 };
 
+function warblrPanel(){
+  $('#genres').empty();
+  $('#moods').empty();
+  $('.mood-genre-buttons').css({
+    "border-color": "white",
+    "border-style": "solid",
+    "width": "300px",
+    "height": "375px",
+    "margin-top": "50px"
+  });
+  $('h3').css("margin-top", "45px")
+  $('#zip-text').appendTo('.mood-genre-buttons');
+  $('#zip-input').insertAfter('#zip-text');
+};
+
+// function warblrButton(name, height, width){
+//   $('<button>').attr("id", name).text(name).css({
+//     "border-color": "gray",
+//     "border-style": "solid",
+//     "height": height,
+//     "width": width
+//   });
+// };
+
+
 $(document).ajaxStart(function() {
   var target = document.getElementById('spinner')
   var spinner = new Spinner(opts).spin(target);

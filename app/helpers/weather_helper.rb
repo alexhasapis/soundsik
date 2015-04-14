@@ -53,9 +53,9 @@ module WeatherHelper
     case location_weather
     when "Thunderstorm", "Drizzle", "Rain", "Extreme"
       type_of_weather = "Rain"
-    when "Snow", "Atmosphere"
+    when "Snow"
       type_of_weather = "Snow"
-    when "Clouds", "Clear"
+    when "Clouds", "Clear", "Atmosphere"
        if @weather["weather"].first["description"] == "clear sky" || "sky is clear"
         type_of_weather = "Clear"
       else
